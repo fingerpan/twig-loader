@@ -1,6 +1,6 @@
 {
-  "name": "@to8to/twig-loader",
-  "version": "0.4.2",
+  "name": "twig-loader",
+  "version": "1.0.0",
   "description": "Webpack loader for compiling twig.js templates",
   "main": "index.js",
   "scripts": {
