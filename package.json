@@ -1,5 +1,5 @@
 {
-  "name": "twig-loader",
+  "name": "@to8to/twig-loader",
   "version": "0.4.1",
   "description": "Webpack loader for compiling twig.js templates",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zimmo-be/twig-loader.git"
+    "url": "git+https://github.com/fingerpan/twig-loader"
   },
   "author": "Mathieu Maes @ Zimmo.be",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zimmo-be/twig-loader/issues"
+    "url": "https://github.com/fingerpan/twig-loader/issues"
   },
-  "homepage": "https://github.com/zimmo-be/twig-loader#readme",
+  "homepage": "https://github.com/fingerpane/twig-loader#readme",
   "peerDependencies": {
     "twig": "~1.10.5"
   },
@@ -28,6 +28,7 @@
     "underscore": "^1.9.1"
   },
   "devDependencies": {
+    "eslint": "^5.11.1",
     "mocha": "^5.2.0",
     "should": "^13.2.1"
   }
