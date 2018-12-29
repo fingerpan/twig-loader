@@ -70,6 +70,7 @@ function showDialog(options, callback) {
     <div>{{comment}}</div>
 {% endmacro %}
 ```
+> js
 ``` js
 import { macro } from 'test.html.twig'
 
@@ -83,4 +84,5 @@ async function rendrTest() {
     // do something
 }
 ```
+
 
