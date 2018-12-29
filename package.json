@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/fingerpan/twig-loader"
   },
-  "author": "Mathieu Maes @ Zimmo.be",
+  "author": "youngpan",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fingerpan/twig-loader/issues"
