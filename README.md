@@ -1,19 +1,20 @@
-# twig-loader [![Build Status](https://travis-ci.org/zimmo-be/twig-loader.svg)](https://travis-ci.org/zimmo-be/twig-loader)
-Webpack loader for compiling Twig.js templates. This loader will allow you to require Twig.js views to your code.
+# @to8to/twig-loader 
+解决在前端复用twig模板，在webpack打包时可以对.twig文件进行解析，其作用主要再与对.twig进行预编译，直接导出render函数，方便开发者使用，提高性能。
 
-## Installation
+## 安装
 
-`npm install twig-loader`
+`npm install @to8to/twig-loader --save`
 
-## Usage
 
-[Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html?branch=master)
+## 说明
+> 此模块是在 twig-loader@0.4.1 基础上修改
+
+## 配置
 
 ``` javascript
 
 module.exports = {
     //...
-
     module: {
         rules: [
             {
@@ -32,45 +33,56 @@ module.exports = {
 };
 ```
 
-### Options
+### 参数
 
 - `twigOptions`: optional; a map of options to be passed through to Twig.
   Example: `{autoescape: true}`
 
-## Loading templates
+## 示例
 
+#### 简单使用
+
+> dialog.html.twig
 ```twig
 {# File: dialog.html.twig #}
 <p>{{title}}</p>
 ```
-
-#### normal
+> index.js
 ```javascript
 
-// File: app.js
-import dialog from 'dialog.html.twig'
+import dialog from './dialog.html.twig'
 var html = dialog({title: 'dialog title'});
-// do something
+// do something...
 
+// or 
 
 // async
+// 可以自己实现 async await
 function showDialog(options, callback) {
      require.ensure([], (require) => {
-        const render = require('./one.bor.twig')
+        const render = require('./dialog.html.twig')
         callback(render(options))
     }, 'yangpan')
 }
+
+showDialog({
+    title: 'dialog title',
+}, () => {
+    // do something
+})
+
 
 ```
 
 #### macro
 > test.html.twig
 ``` js
-{% macro render(comment) %}
+{% macro yourMacroName(comment) %}
     <div>{{comment}}</div>
 {% endmacro %}
 ```
-> js
+> index.js
+
 ``` js
 import { macro } from 'test.html.twig'
 
@@ -80,9 +92,8 @@ macro('render', 'hello word').then((html) => {
 // or ---
 
 async function rendrTest() {
-    let html = await macro('render', 'hello word')
+    let html = await macro('yourMacroName', 'hello word')
     // do something
+    // ...
 }
 ```
-
-
